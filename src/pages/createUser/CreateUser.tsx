@@ -10,6 +10,8 @@ const CreateUser = () => {
     const formData = new FormData(formElement);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
+    formElement.reset();
+    alert("New user entry succesfully created");
   };
 
   return (
@@ -18,14 +20,14 @@ const CreateUser = () => {
       <DateInput name="birthday" label="Birthday" />
       <SelectInput />
       <TextInput
-        name="email-address"
+        name="email"
         type="email"
         label="Email address"
         required={true}
       />
       <TextInput name="address" label="Address" required={true} />
       <TextInput
-        name="phone-number"
+        name="phone"
         label="Phone number"
         required={true}
         pattern="[0-9+ ]*"

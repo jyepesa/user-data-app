@@ -1,9 +1,9 @@
 export interface UserData {
   username: string;
-  date: string;
+  birthday: string;
   gender: string;
-  "email-address": string;
+  email: string;
   address: string;
-  "phone-number": string;
+  phone: string;
   website: string;
 }
