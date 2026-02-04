@@ -9,29 +9,20 @@ const CreateUser = () => {
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    const newUser = { ...data, id: crypto.randomUUID() };
+    console.log(newUser);
     formElement.reset();
     alert("New user entry succesfully created");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextInput name="username" label="Username" required={true} />
+      <TextInput name="username" label="Username" />
       <DateInput name="birthday" label="Birthday" />
       <SelectInput />
-      <TextInput
-        name="email"
-        type="email"
-        label="Email address"
-        required={true}
-      />
-      <TextInput name="address" label="Address" required={true} />
-      <TextInput
-        name="phone"
-        label="Phone number"
-        required={true}
-        pattern="[0-9+ ]*"
-      />
+      <TextInput name="email" type="email" label="Email address" />
+      <TextInput name="address" label="Address" />
+      <TextInput name="phone" label="Phone number" pattern="[0-9+ ]*" />
       <TextInput name="website" label="Website" />
       <button type="submit" className="submit-btn">
         Submit

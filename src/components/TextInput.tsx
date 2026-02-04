@@ -2,13 +2,11 @@ const TextInput = ({
   name,
   type,
   label,
-  required,
   pattern,
 }: {
   name: string;
   type?: string;
   label: string;
-  required?: boolean;
   pattern?: string;
 }) => {
   return (
@@ -21,7 +19,7 @@ const TextInput = ({
         id={name}
         name={name}
         type={type ? type : "text"}
-        required={required}
+        required
         pattern={pattern ? pattern : undefined}
       />
     </div>
