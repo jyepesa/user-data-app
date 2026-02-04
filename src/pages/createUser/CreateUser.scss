@@ -1,0 +1,29 @@
+@use "../../styles/variables" as *;
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  margin: 1.6rem 0;
+  &__label {
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  &__input {
+    padding: 0.4rem;
+    background-color: $secondary-backgound;
+    border: none;
+    width: 200px;
+    border-radius: 5px;
+  }
+}
+
+.submit-btn {
+  padding: 9px;
+  border-radius: 7px;
+  border: none;
+  background-color: rgb(132, 132, 232);
+
+  &:hover {
+    cursor: pointer;
+  }
+}

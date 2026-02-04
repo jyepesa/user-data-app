@@ -5,18 +5,24 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
+import "./App.scss";
+import CreateUser from "./pages/createUser/CreateUser";
 
 const RootLayout = () => {
   return (
-    <>
-      <nav>
-        <Link to="/overview">Overview</Link>
-        <Link to="/create">Create new user</Link>
+    <div className="app">
+      <nav className="sidebar">
+        <Link to="/overview" className="sidebar__link">
+          Overview
+        </Link>
+        <Link to="/create" className="sidebar__link">
+          Create new user
+        </Link>
       </nav>
-      <main>
+      <main className="body">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 
@@ -43,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "create",
-        element: <h1>Here you will be able to create new users</h1>,
+        element: <CreateUser />,
       },
       {
         path: "edit/:userId",
