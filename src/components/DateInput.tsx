@@ -1,4 +1,12 @@
-const DateInput = ({ name, label }: { name: string; label: string }) => {
+const DateInput = ({
+  name,
+  label,
+  value = undefined,
+}: {
+  name: string;
+  label: string;
+  value?: string | undefined;
+}) => {
   return (
     <div className="form-item">
       <label className="form-item__label" htmlFor={name}>
@@ -10,6 +18,7 @@ const DateInput = ({ name, label }: { name: string; label: string }) => {
         name={name}
         type="date"
         required
+        defaultValue={value ? value : undefined}
       />
     </div>
   );

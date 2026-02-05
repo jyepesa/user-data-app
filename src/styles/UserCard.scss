@@ -5,6 +5,10 @@
   position: relative;
   border-radius: 10px;
   display: flex;
+  width: 700px;
+  &:hover {
+    cursor: pointer;
+  }
   &__picframe {
     border-right: 1px solid $buttons;
   }

@@ -3,11 +3,13 @@ const TextInput = ({
   type,
   label,
   pattern,
+  value = undefined,
 }: {
   name: string;
   type?: string;
   label: string;
   pattern?: string;
+  value?: string | undefined;
 }) => {
   return (
     <div className="form-item">
@@ -21,6 +23,7 @@ const TextInput = ({
         type={type ? type : "text"}
         required
         pattern={pattern ? pattern : undefined}
+        defaultValue={value ? value : undefined}
       />
     </div>
   );

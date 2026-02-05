@@ -8,43 +8,63 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { type UserData } from "../types/userType";
 import "../styles/UserCard.scss";
 
-const UserCard = ({ user }: { user: UserData }) => {
+const UserCard = ({
+  user,
+  handleDelete,
+  handleEditPage,
+}: {
+  user: UserData;
+  handleDelete: (user: UserData) => void;
+  handleEditPage: (id: string) => void;
+}) => {
+  const picDetails = { src: "", alt: "" };
+  if (user.gender === "male") {
+    picDetails.src = "./dumbbells.jpg";
+    picDetails.alt = "dumbbells";
+  } else if (user.gender === "female") {
+    picDetails.src = "./makeup.jpg";
+    picDetails.alt = "makeup";
+  } else {
+    picDetails.src = "./book.jpg";
+    picDetails.alt = "book";
+  }
   return (
-    <div className="usercard" key={id}>
+    <div className="usercard" onClick={() => handleEditPage(user.id)}>
       <div className="usercard__picframe">
         <img
-          src="./dumbbells.jpg"
-          alt="manly dumbbells!"
+          src={picDetails.src}
+          alt={picDetails.alt}
           className="usercard__picture"
         />
       </div>
       <div className="usercard__info">
-        <h2 className="usercard__username">Juan</h2>
+        <h2 className="usercard__username">{user.username}</h2>
         <div className="usercard__data">
           <div className="usercard__column">
             <p className="usercard__piece">
-              <CakeIcon /> 12.11.1998
+              <CakeIcon /> {user.birthday}
             </p>
             <p className="usercard__piece">
-              <WcIcon /> Male
+              <WcIcon /> {user.gender}
             </p>
             <p className="usercard__piece">
-              <EmailIcon /> jas@hot.com
+              <EmailIcon /> {user.email}
             </p>
           </div>
           <div className="usercard__column">
             <p className="usercard__piece">
-              <HomeIcon /> xstreet 45, 53525 neverland
+              <HomeIcon /> {user.address}
             </p>
             <p className="usercard__piece">
-              <PhoneIcon /> 234523632
+              <PhoneIcon /> {user.phone}
             </p>
             <p className="usercard__piece">
-              <LanguageIcon /> ergo.com
+              <LanguageIcon /> {user.website}
             </p>
           </div>
         </div>
-        <button className="usercard__delete">
+        <button className="usercard__delete" onClick={() => handleDelete(user)}>
+          {" "}
           <HighlightOffIcon />
         </button>
       </div>

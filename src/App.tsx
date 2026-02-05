@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 import "./App.scss";
 import CreateUser from "./pages/createUser/CreateUser";
-import UserCard from "./components/UserCard";
 import { UserDataProvider } from "./context/UserDataContext";
+import Overview from "./pages/overview/Overview";
+import EditUser from "./pages/editUser/EditUser";
 
 const RootLayout = () => {
   return (
@@ -46,15 +47,15 @@ const router = createBrowserRouter(
         },
         {
           path: "overview",
-          element: <UserCard />,
+          element: <Overview />,
         },
         {
           path: "create",
           element: <CreateUser />,
         },
         {
-          path: "edit/:userId",
-          element: <h1>this area is meant to edit existing users</h1>,
+          path: "edit/:id",
+          element: <EditUser />,
         },
       ],
     },
