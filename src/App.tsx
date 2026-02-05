@@ -61,7 +61,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "user-data-app",
+    basename: "/user-data-app",
   },
 );
 
