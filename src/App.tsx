@@ -8,6 +8,7 @@ import {
 import "./App.scss";
 import CreateUser from "./pages/createUser/CreateUser";
 import UserCard from "./components/UserCard";
+import { UserDataProvider } from "./context/UserDataContext";
 
 const RootLayout = () => {
   return (
@@ -64,7 +65,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UserDataProvider>
+      <RouterProvider router={router} />;
+    </UserDataProvider>
+  );
 }
 
 export default App;

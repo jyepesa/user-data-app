@@ -1,6 +1,6 @@
 import { type UserData } from "../types/userType";
 
-type Action = {
+export type Action = {
   type: "CREATE_USER" | "EDIT_USER" | "DELETE_USER";
   payload: UserData;
 };

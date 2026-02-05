@@ -2,17 +2,22 @@ import "./CreateUser.scss";
 import TextInput from "../../components/TextInput";
 import DateInput from "../../components/DateInput";
 import SelectInput from "../../components/SelectInput";
+import { useGetData } from "../../context/UserDataContext";
+import type { UserData } from "../../types/userType";
+import { useNavigate } from "react-router-dom";
 
 const CreateUser = () => {
+  const { dispatch } = useGetData();
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
     const data = Object.fromEntries(formData.entries());
-    const newUser = { ...data, id: crypto.randomUUID() };
-    console.log(newUser);
-    formElement.reset();
-    alert("New user entry succesfully created");
+    const newUser = { ...data, id: crypto.randomUUID() } as unknown as UserData;
+    dispatch({ type: "CREATE_USER", payload: newUser });
+    navigate("/overview");
   };
 
   return (

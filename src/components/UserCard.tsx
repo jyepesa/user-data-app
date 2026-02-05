@@ -8,18 +8,9 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { type UserData } from "../types/userType";
 import "../styles/UserCard.scss";
 
-const UserCard = ({
-  username,
-  birthday,
-  gender,
-  email,
-  address,
-  phone,
-  website,
-  key,
-}: UserData) => {
+const UserCard = ({ user }: { user: UserData }) => {
   return (
-    <div className="usercard">
+    <div className="usercard" key={id}>
       <div className="usercard__picframe">
         <img
           src="./dumbbells.jpg"
