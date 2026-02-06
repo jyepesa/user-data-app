@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   Link,
   Outlet,
@@ -29,41 +29,36 @@ const RootLayout = () => {
   );
 };
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <RootLayout />,
-      errorElement: (
-        <div>
-          <h1>Oops, something went wrong! Are you sure you typed correctly?</h1>
-          <Link to="/">Back to the page</Link>
-        </div>
-      ),
-      children: [
-        {
-          index: true,
-          element: <Navigate to="/overview" replace />,
-        },
-        {
-          path: "overview",
-          element: <Overview />,
-        },
-        {
-          path: "create",
-          element: <CreateUser />,
-        },
-        {
-          path: "edit/:id",
-          element: <EditUser />,
-        },
-      ],
-    },
-  ],
+const router = createHashRouter([
   {
-    basename: "/user-data-app",
+    path: "/",
+    element: <RootLayout />,
+    errorElement: (
+      <div>
+        <h1>Oops, something went wrong! Are you sure you typed correctly?</h1>
+        <Link to="/">Back to the page</Link>
+      </div>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/overview" replace />,
+      },
+      {
+        path: "overview",
+        element: <Overview />,
+      },
+      {
+        path: "create",
+        element: <CreateUser />,
+      },
+      {
+        path: "edit/:id",
+        element: <EditUser />,
+      },
+    ],
   },
-);
+]);
 
 function App() {
   return (
