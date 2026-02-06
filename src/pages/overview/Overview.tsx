@@ -5,8 +5,12 @@ import type { UserData } from "../../types/userType";
 
 const Overview = () => {
   const { state, dispatch } = useGetData();
-  const deleteUser = (user: UserData) => {
+  const deleteUser = (
+    user: UserData,
+    e: React.MouseEvent<HTMLButtonElement>,
+  ) => {
     dispatch({ type: "DELETE_USER", payload: user });
+    e.stopPropagation();
   };
   const navigate = useNavigate();
 

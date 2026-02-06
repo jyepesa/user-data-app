@@ -14,7 +14,10 @@ const UserCard = ({
   handleEditPage,
 }: {
   user: UserData;
-  handleDelete: (user: UserData) => void;
+  handleDelete: (
+    user: UserData,
+    e: React.MouseEvent<HTMLButtonElement>,
+  ) => void;
   handleEditPage: (id: string) => void;
 }) => {
   const picDetails = { src: "", alt: "" };
@@ -63,7 +66,10 @@ const UserCard = ({
             </p>
           </div>
         </div>
-        <button className="usercard__delete" onClick={() => handleDelete(user)}>
+        <button
+          className="usercard__delete"
+          onClick={(e) => handleDelete(user, e)}
+        >
           {" "}
           <HighlightOffIcon />
         </button>
