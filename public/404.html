@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // This script will redirect to your index.html while preserving the path.
+      // It requires your client-side router to handle the path correctly.
+      var path = window.location.pathname;
+      // Adjust this if your application is served from a sub-directory, e.g., '/user-data-app'
+      var appPath = "/user-data-app";
+      if (path.startsWith(appPath)) {
+        // Remove the base path if present
+        path = path.substring(appPath.length);
+      }
+      var search = window.location.search;
+      var hash = window.location.hash;
+      if (
+        !path.endsWith(".html") &&
+        !path.endsWith(".css") &&
+        !path.endsWith(".js") &&
+        !path.endsWith(".png") &&
+        !path.endsWith(".jpg") &&
+        !path.endsWith(".jpeg") &&
+        !path.endsWith(".gif") &&
+        !path.endsWith(".svg") &&
+        !path.endsWith(".ico")
+      ) {
+        sessionStorage.redirect = location.href;
+      }
+      window.location.replace(appPath + "/index.html" + hash);
+    </script>
+  </head>
+  <body>
+    You will be redirected to the application homepage.
+  </body>
+</html>
